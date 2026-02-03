@@ -1,0 +1,127 @@
+{
+  "name": "Ch. Krishna Kumar",
+  "contact": {
+    "location": "Sathupally, Telangana",
+    "email": "chettimalakrishna@gmail.com",
+    "phone": "9391454023",
+    "github": "https://github.com/chettimalakrishna-504"
+  },
+  "objective": "Computer Science undergrad (GPA 8.35/10) passionate to apply strong fundamentals in algorithms, data structures, object-oriented design, seeking to leverage academic knowledge and practical skills gained from coursework and online training. I am committed to innovative projects, further develop my expertise, and learn from experienced professionals in the field, committed to continuous learning and professional growth.",
+  "academics": [
+    {
+      "title": "B. Tech in Computer Science",
+      "institution": "Mother Teresa Institute of Science& Technology (MIST)",
+      "date": "2023 – 2026",
+      "gpa": "8.35 / 10",
+      "notes": "Relevant Coursework: Data Structures & Algorithms, Operating Systems, Computer Networks, Machine Learning, Database Systems, Artificial intelligence"
+    },
+    {
+      "title": "Diploma in ECE",
+      "institution": "Mother Teresa institute of science &Technology",
+      "date": "2020 – 2023",
+      "gpa": "85%",
+      "notes": "Diploma project: Sensors using detection robots — Using IoT and Arduino boards with IR sensors"
+    },
+    {
+      "title": "SSC",
+      "institution": "ZPHS Nacharam",
+      "date": "",
+      "gpa": "9.8"
+    }
+  ],
+  "skills": {
+    "Languages": ["Java", "Python", "C", "SQL"],
+    "Frontend": ["HTML", "CSS"],
+    "Database": ["MySQL"],
+    "CS Fundamentals": ["Data Structures and Algorithms", "DSA", "Object Oriented Programming", "Computer Networks", "Machine Learning basics", "UiPath"]
+  },
+  "projects": [
+    {
+      "title": "EMPLOY SALARY PREDICTION",
+      "description": "Designed and implemented Flutter mobile application to promote food transparency by scanning barcodes and retrieving ingredients, and Nutri-Score data. Integrated Firebase Authentication for secure user login and implemented backend logic using API calls.",
+      "tools": ["Flutter", "Firebase (Auth)", "Dart"]
+    },
+    {
+      "title": "PERSONALIZED EDUCATIONAL PLATFORM",
+      "description": "Developed a mobile application that provides real-time scene descriptions and interactive Q/A for visually impaired users using Vision-Language Models (VLMs). Built the frontend with React Native (Expo) and backend with Fast API (Python) integrating YOLO, and Whisper for multimodal AI capabilities. Applied OCR and object detection (OpenCV, Detectron2, YOLO) to identify text, objects, and environmental hazards and using type script, UI flutter, SQL.",
+      "tools": ["React Native", "Fast API", "Py Torch", "OpenCV", "Detectron2", "YOLO", "Type script", "UI Flutter", "SQL"]
+    },
+    {
+      "title": "SENSORS USING DETECTION ROBOTS (DIPLOMA)",
+      "description": "Using IoT and Arduino boards with IR sensors to build vehicles that detect distance.",
+      "tools": ["IoT", "Arduino", "IR sensors"],
+      "highlight": true
+    }
+  ],
+  "certifications": [
+    "Smart Coder (DSA) — Smart Interviews",
+    "Problem Solving (Basic) — HackerRank",
+    "NPTEL Certification in Big Data Computing",
+    "IIT Madras Certification (EV Vehicle)",
+    "Trained at SAK Informatics",
+    "Web Development Certification — Infosys Springboard (and Hackathon Certificate)",
+    "Cisco Networking Academy — Programming Essentials in C"
+  ],
+  "experience": [
+    {
+      "year": "2023",
+      "title": "Intruder Detection Robots using Sensors",
+      "company": "MIST / Diploma Project",
+      "duration": "~6 months",
+      "details": [
+        "Worked on intruder detection robots using IR sensors and Arduino boards.",
+        "Implemented distance sensing, basic control logic, and prototype testing.",
+        "Collaborated with teammates to design, build, and validate the system."
+      ]
+    },
+    {
+      "year": "2024",
+      "title": "EMPLOY SALARY PREDICTION — Team Leader (ML)",
+      "company": "Project",
+      "duration": "6+ months",
+      "details": [
+        "Led the team to implement a salary prediction system using foundational machine learning techniques.",
+        "Coordinated data collection, preprocessing, model training and evaluation.",
+        "Integrated the model into application demo and assisted team members in ML workflows."
+      ]
+    },
+    {
+      "year": "2025",
+      "title": "EMPLOY SALARY PREDICTION — Team Leader (AI & ML)",
+      "company": "Project",
+      "duration": "Ongoing",
+      "details": [
+        "Continued leading enhancements to the salary prediction project, applying AI & ML techniques to improve performance.",
+        "Focused on feature engineering, model optimization, and deployment considerations.",
+        "Mentored team members on AI/ML concepts and best practices."
+      ]
+    },
+    {
+      "title": "Technical Club Member",
+      "company": "MIST",
+      "details": [
+        "Collaborated on embedded system projects, AI & ML, and Python projects",
+        "Led a team of 4 to architect and develop a prototype 'personalized education prediction' integrating Python and TypeScript for end-to-end data collection and visualization on a Flutter dashboard."
+      ]
+    },
+    {
+      "title": "Event Volunteer",
+      "company": "MIST",
+      "details": [
+        "Improved leadership and project management skills through coordinating college events."
+      ]
+    }
+  ],
+  "additional": [
+    "Quick learner and adaptable to new technologies and positive attitude with consistency.",
+    "Positive attitude.",
+    "Tech enthusiast and consistent top performer."
+  ],
+  "personal": {
+    "name": "Ch. Krishna Kumar",
+    "father": "Ch. Srinu",
+    "mother": "Ch. Jyothi",
+    "dob": "25-11-2004",
+    "address": "Main road Nacharam, Dammapeta, Bhadradrikothagudem.\nPlace:\nNacharam"
+  }
+}

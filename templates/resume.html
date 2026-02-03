@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Resume - My Portfolio{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>My Resume</h1>
+        <p class="breadcrumb">Home > Resume</p>
+    </div>
+</div>
+
+<section class="resume-section">
+    <div class="container">
+        <div class="resume-grid">
+            <div class="resume-upload">
+                <h2>Upload Your Resume</h2>
+                <p>Share your resume for future opportunities or download mine below.</p>
+                
+                <form method="POST" enctype="multipart/form-data" class="upload-form">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="resume_file" name="resume_file" required 
+                               accept=".pdf,.txt,.doc,.docx,.png,.jpg,.jpeg,.gif"
+                               class="file-input">
+                        <label for="resume_file" class="file-label">
+                            <span class="file-icon">📄</span>
+                            <span class="file-text">Choose a file or drag it here</span>
+                            <span class="file-hint">Supported: PDF, DOC, DOCX, TXT, PNG, JPG (Max 16MB)</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Upload Resume</button>
+                </form>
+                
+                <h3>Download My Resume</h3>
+                <p>Get a copy of my professional resume:</p>
+                {% if uploaded_files %}
+                    <a href="{{ url_for('download', filename=uploaded_files[-1]['filename']) }}" class="btn btn-secondary" download>Download Latest Uploaded Resume</a>
+                {% else %}
+                    <a href="{{ url_for('download_resume') }}" class="btn btn-secondary" download>Download Resume (TXT)</a>
+                {% endif %}
+            </div>
+            
+            <div class="resume-content">
+                <h2>{{ resume.name }}</h2>
+                <p class="contact-line">{{ resume.contact.location }} | <a href="mailto:{{ resume.contact.email }}">{{ resume.contact.email }}</a> | <a href="tel:+{{ resume.contact.phone }}">{{ resume.contact.phone }}</a> | <a href="{{ resume.contact.github }}" target="_blank">{{ resume.contact.github }}</a></p>
+
+                <div class="resume-section">
+                    <h3>Objective</h3>
+                    <p>{{ resume.objective }}</p>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Academics</h3>
+                    {% for item in resume.academics %}
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <h4>{{ item.title }} — {{ item.institution }}</h4>
+                            {% if item.date %}<span class="resume-date">{{ item.date }}</span>{% endif %}
+                        </div>
+                        <p>
+                            {% if loop.index == 1 %}
+                                Current GPA: {{ item.gpa }}
+                            {% else %}
+                                {{ item.gpa }}
+                            {% endif %}
+                        </p>
+                        {% if item.notes %}
+                        <p>{{ item.notes }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="resume-section">
+                    <h3>Technical Skills</h3>
+                    <ul class="skills-list">
+                        {% for key, vals in resume.skills.items() %}
+                        <li><strong>{{ key }}:</strong> {{ vals|join(', ') }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Projects</h3>
+                    {% for p in resume.projects %}
+                    <div class="resume-item">
+                        {% if p.highlight or 'DIPLOMA' in p.title %}
+                        <h4 class="project-highlight">{{ p.title|upper }}</h4>
+                        {% else %}
+                        <h4>{{ p.title }}</h4>
+                        {% endif %}
+                        <p>{{ p.description }}</p>
+                        {% if p.tools %}
+                        <p><strong>Tools Used:</strong> {{ p.tools|join(', ') }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="resume-section">
+                    <h3>Certifications</h3>
+                    <ul class="skills-list">
+                        {% for c in resume.certifications %}
+                        <li>{{ c }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Experience</h3>
+                    {% for e in resume.experience %}
+                    <div class="resume-item">
+                        <h4>{{ e.title }}{% if e.company %} — {{ e.company }}{% endif %}</h4>
+                        <ul class="duties-list">
+                            {% for d in e.details %}
+                            <li>{{ d }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="resume-section">
+                    <h3>Additional</h3>
+                    <ul class="skills-list">
+                        {% for a in resume.additional %}
+                        <li>{{ a }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Personal Details</h3>
+                    <p><strong>Name:</strong> {{ resume.personal.name }}</p>
+                    <p><strong>Father's name:</strong> {{ resume.personal.father }}</p>
+                    <p><strong>Mother's name:</strong> {{ resume.personal.mother }}</p>
+                    <p><strong>Date of birth:</strong> {{ resume.personal.dob }}</p>
+                    <p><strong>Address:</strong> {{ resume.personal.address }}</p>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Declaration</h3>
+                    <p>I hereby declare that the information given above is true to the best of my knowledge.</p>
+                    <p><strong>{{ resume.personal.name }}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="uploaded-files-section">
+    <div class="container">
+        <h2>Uploaded Resumes</h2>
+        
+        {% if uploaded_files %}
+        <div class="files-list">
+            {% for file in uploaded_files|reverse %}
+            <div class="file-item">
+                <div class="file-info">
+                    <span class="file-name">{{ file.original_name }}</span>
+                    <span class="file-date">{{ file.upload_time }}</span>
+                </div>
+                <a href="{{ url_for('download', filename=file.filename) }}" class="btn btn-small">Download</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-files">No resumes uploaded yet.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
